@@ -13,6 +13,19 @@ SQL 단독으로 사용할 때보다 복잡한 로직을 쉽게 구현할 수 �
 4. 데이터베이스 관리 기능과 비주얼 프로그래밍 기능을 갖춘 GUI 기반 소프트웨어 개발 도구 사용  
 4세대 언어, 테이블 중심의 파워빌더, 보고서 생성의 RPG, 델파이 등
 
-## 문제가 발생하거나 고민한 내용 + 해결 과정  
-## 참고할 만한 내용 
+## 문제가 발생하거나 고민한 내용 + 해결 과정    
+### 계속해서 접속에 실패하고 있다.
+### 1. listener refused the connection with the following error ora-12505  
+https://hoha1231.tistory.com/5  
+이 오류를 해결했으나
+### 2. 테스트 실패 io 오류 the network adapter could not establish the connection  
+이 오류는 해결이 안됨..  
+### 전부 삭제하고 처음부터 다시 설치해야겠다..  
+
+
+## 참고할 만한 내용   
+https://hoha1231.tistory.com/5  
+https://jhnyang.tistory.com/272
+
 ## 회고(+-,!)
+(-)계속해서 오류가 나서 처음부터 다시 설치해봐야겠다..  시간이 너무  
