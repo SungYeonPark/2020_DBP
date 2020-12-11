@@ -3,6 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title> 모범 음식점 </title>
+    <style> 
+         body{ 
+             font-family: Consolas, monospace; 
+             font-family: 12px; 
+         } 
+         table{ 
+             width: 100%; 
+         } 
+         th,td{ 
+             padding: 10px; 
+             border-bottom: 1px solid #dadada; 
+         } 
+     </style> 
 </head>
 <body>
     <h2><a href="index.php">모범 음식점</a> | 모범 음식점 취소 현황</h2>
@@ -28,8 +41,8 @@
             <option value="혐오식품판매"> 혐오식품판매 </option>
             <option value="배달전문"> 배달전문 </option>
             <option value="행정처분(영업정지)"> 행정처분(영업정지) </option>
-        </select>
         <input type="submit" value="검색"/>
+        </select>
     </form>
     
 </body>
