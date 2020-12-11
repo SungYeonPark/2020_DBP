@@ -1,35 +1,35 @@
-<?php  
-    $link = mysqli_connect('localhost', 'admin', 'admin', 'restaurantDB');
-    if (mysqli_connect_errno()) {
-        echo "MariaDB 접속에 실패했습니다. 관리자에게 문의하세요.";
-        echo "<br>";
-        echo mysqli_connect_error();
-        exit();
-    }
-    
-    if(isset($_GET['reasonForCancle'])){
-            $reasonForCancle = $_GET['reasonForCancle'];
-    } else {
-        $reasonForCancle = $_POST['reasonForCancle'];
-    }
+<?php 
+$link = mysqli_connect('localhost','admin','admin','restaurantDB');
 
-    if($reasonForCancle == "전체선택"){
-        $query = "
-            SELECT selectedDate, cancleDate, restaurantName, roadAddress, businessName, reasonForCancle 
-            FROM cancledRestDB
-            ORDER BY restaurantName";
-    } else {
-        $query = "
-            SELECT selectedDate, cancleDate, restaurantName, roadAddress, businessName, reasonForCancle 
-            FROM cancledRestDB
-            where reasonForCancle ='{$reasonForCancle}'
-            ORDER BY restaurantName";
-    }
+if(mysqli_connect_error()){
+    echo "접속에 실패했습니다. 관리자에게 문의하세요";
+    exit();
+}
 
-    $result = mysqli_query($link,$query);
+if(isset($_GET['reasonForCancle'])){
+    $reasonForCancle = mysqli_real_escape_string($link,$_GET['reasonForCancle']);
+}else{
+    $reasonForCancle = mysqslei_real_escape_string($link,$_POST['reasonForCancle']);
+}
 
-    $article = '';
-    while($row = mysqli_fetch_array($result)){
+if($reasonForCancle == "전체선택"){
+    $query = "
+        SELECT selectedDate, cancleDate, restaurantName, roadAddress, businessName, reasonForCancle 
+        FROM cancledRestDB
+        ORDER BY restaurantName";
+} else {
+    $query = "
+        SELECT selectedDate, cancleDate, restaurantName, roadAddress, businessName, reasonForCancle 
+        FROM cancledRestDB
+        where reasonForCancle ='{$reasonForCancle}'
+        ORDER BY restaurantName";
+}
+
+$result = mysqli_query($link,$query);
+
+$article ='';
+
+while($row = mysqli_fetch_array($result)){
         $article .= '<tr>';
         $article .= '<td>'.$row['selectedDate'].'</td>';
         $article .= '<td>'.$row['cancleDate'].'</td>';
@@ -38,7 +38,8 @@
         $article .= '<td>'.$row['businessName'].'</td>';
         $article .= '<td>'.$row['reasonForCancle'].'</td>';
         $article .= '</tr>';
-    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +47,21 @@
 <head>
     <meta charset="utf-8">
     <title> 모범 음식점 </title>
+    <style> 
+         body{ 
+             font-family: Consolas, monospace; 
+             font-family: 12px; 
+         } 
+         table{ 
+             width: 100%; 
+         } 
+         th,td{ 
+             padding: 10px; 
+             border-bottom: 1px solid #dadada; 
+         } 
+     </style>
 </head>
+
 <body>
 <h2><a href="index.php">모범 음식점</a> | 모범 음식점 취소 현황</h2>
     <p>취소 사유를 선택해주세요 (미선택시 전체선택)</p>
@@ -71,21 +86,22 @@
             <option value="혐오식품판매"> 혐오식품판매 </option>
             <option value="배달전문"> 배달전문 </option>
             <option value="행정처분(영업정지)"> 행정처분(영업정지) </option>
-        </select>
         <input type="submit" value="검색"/>
+        </select>
     </form>
-    <br>
+    
     <table border="1">
         <tr>
-            <th>지정일자</th>
-            <th>취소일자</th>
-            <th>업소명</th>
-            <th>소재지 도로명</th>
-            <th>업태명</th>
-            <th>취소 사유</th>
+            <td>지정일자</td>
+            <td>취소일자</td>
+            <td>식당이름</td>
+            <td>소재지 도로명</td>
+            <td>업태명</td>
+            <td>취소 사유</td>
         </tr>
         <p> <?=$reasonForCancle?> 취소 사유 검색결과입니다. </p>
         <?=$article?>
     </table>
+    
 </body>
 </html>
