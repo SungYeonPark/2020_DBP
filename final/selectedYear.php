@@ -61,16 +61,15 @@
  </head> 
  <body> 
          <h2><a href="index.php">모범 음식점</a> | 전통있는 모범음식점 현황</h2> 
-
-         <table> 
-             <tr> 
-                 <th>모범음식점 지정일자</th> 
-                 <th>식당 이름</th> 
-                 <th>주소</th> 
-                 <th>메뉴 분류</th> 
-                 <th>전화번호</th> 
-             </tr> 
-             <?= $article ?> 
+         <table border="1">
+            <tr>
+                <td>지정일자</td>
+                <td>식당 이름</td>
+                <td>주소</td>
+                <td>메뉴 분류</td>
+                <td>전화번호</td>
+            </tr>
+         <?=$article?>
          </table> 
 
  </body> 
