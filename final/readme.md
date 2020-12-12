@@ -2,7 +2,7 @@
 https://youtu.be/91iLIYFVJzo  
 
 ### *참고  
-데이터베이스명: restaurantDB   
+데이터베이스명: mobeom   
 테이블명: selectedRestDB/cancledRestDB  
 
 ### *참조 사이트  
