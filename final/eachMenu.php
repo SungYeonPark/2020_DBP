@@ -1,5 +1,5 @@
 <?php
-    $link = mysqli_connect('localhost', 'admin', 'admin', 'restaurantDB');
+    $link = mysqli_connect('localhost', 'admin', 'admin', 'mobeom');
     $query = " 
     SELECT * FROM selectedRestDB ORDER BY selectedDate DESC ";
     $result = mysqli_query($link, $query);
